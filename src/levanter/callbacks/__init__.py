@@ -12,7 +12,7 @@ import jax
 from tqdm_loggable.auto import tqdm
 
 import levanter.tracker
-from levanter.callbacks._core import Callback, CBInfo, JitCallback, LambdaCallback, StepInfo
+from levanter.callbacks._core import Callback, CBInfo, CheckpointCallback, JitCallback, LambdaCallback, StepInfo
 from levanter.callbacks._metrics import (
     _tqdm_logging_one_time_setup,
     log_epoch_progress,
@@ -290,6 +290,7 @@ __all__ = [
     "profile_ctx",
     "Callback",
     "CBInfo",
+    "CheckpointCallback",
     "JitCallback",
     "LambdaCallback",
     "StepInfo",

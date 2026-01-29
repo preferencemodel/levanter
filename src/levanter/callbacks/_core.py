@@ -56,8 +56,14 @@ class LambdaCallback(Callback[S]):
         self.fn = fn
 
     def on_step(self, info: StepInfo[S], force: bool = False):
-        self.fn(info, force=force)
+        self.fn(info)
 
+class CheckpointCallback(Callback[S]): 
+    def __init__(self, fn: Callable[[StepInfo[S]], Any]):
+        self.fn = fn
+
+    def on_step(self, info: StepInfo[S], force: bool = False):
+        self.fn(info, force=force)
 
 class JitCallback(ABC, Generic[S, M, CBInfo]):
     """
