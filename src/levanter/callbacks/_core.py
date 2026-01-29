@@ -56,7 +56,7 @@ class LambdaCallback(Callback[S]):
         self.fn = fn
 
     def on_step(self, info: StepInfo[S], force: bool = False):
-        self.fn(info)
+        self.fn(info, force=force)
 
 
 class JitCallback(ABC, Generic[S, M, CBInfo]):
